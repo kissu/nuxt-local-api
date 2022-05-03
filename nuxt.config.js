@@ -3,7 +3,7 @@ export default {
   ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -40,6 +40,11 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'vue-scrollto/nuxt',
+  ],
+  serverMiddleware: [
+    '~/server-middleware/test.js',
+    { path: '/api', handler: '~/server-middleware/rest.js' },
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
